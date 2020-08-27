@@ -13,7 +13,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-    build(req.body, res);
+    try {
+        build(req.body, res);
+    } catch (err) {
+        console.error(err)
+        throw err
+    }
+
 });
 
 generate_script = () => {
